@@ -1,0 +1,830 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Viva de Renda</title>
+<style>
+
+   body {
+
+     margin: 0;
+
+     font-family: 'Segoe UI', sans-serif;
+
+     background-color: #000;
+
+     color: white;
+
+     text-align: center;
+
+   }
+
+   h1.gradient {
+
+     background: linear-gradient(90deg, #8000ff, #ffffff);
+
+     -webkit-background-clip: text;
+
+     -webkit-text-fill-color: transparent;
+
+     font-size: 2.5em;
+
+     margin: 0.2em 0;
+
+   }
+
+   .sub {
+
+     font-size: 1.2em;
+
+     margin-bottom: 0.5em;
+
+   }
+
+   .small-text {
+
+     font-size: 0.9em;
+
+     color: white;
+
+     margin-bottom: 1em;
+
+   }
+
+.btn-buy {
+ background: #8000ff;;
+ border: 2.5px solid #a566ff; /* roxo vibrante */
+ color: white;
+ padding: 0.8em 1.8em;
+ font-size: 1.1em;
+ border-radius: 50px; /* bordas bem arredondadas */
+ cursor: pointer;
+ display: inline-flex;
+ align-items: center;
+ gap: 10px;
+ font-weight: 600;
+ transition: all 0.2s ease;
+ outline: none;
+}
+.btn-buy:hover {
+ background: #5c00b8;
+ border-color: #4a0094;
+ transform: scale(1.05);
+}
+.circle-arrow {
+ background: white;
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ width: 28px;
+ height: 28px;
+}
+.circle-arrow svg {
+ display: block;
+}
+
+   }
+
+   .btn-buy:hover,
+.btn-buy:focus {
+ background: #5c00b8; /* roxo mais escuro */
+ border-color: #4a0094; /* contorno mais escuro */
+ outline: none;
+   }
+
+   .gray-box, .item-box, .depoimento {
+
+     background-color: #1c1c1c;
+
+     border-radius: 12px;
+
+     margin: 2em auto;
+
+     padding: 1em;
+
+     max-width: 78%;
+
+   }
+
+   .gray-box h2 {
+
+     font-size: 1.5em;
+
+   }
+
+   .gradient-text {
+
+     background: linear-gradient(90deg, #8000ff, #ffffff);
+
+     -webkit-background-clip: text;
+
+     -webkit-text-fill-color: transparent;
+
+   }
+
+   .line {
+
+     height: 3px;
+
+     width: 100%;
+
+     background: linear-gradient(to right, black, #8000ff, black);
+
+     margin: 2em 0 1em;
+
+   }
+
+   .topics {
+
+     display: flex;
+
+     overflow: hidden;
+
+     position: relative;
+
+     height: 70px;
+
+   }
+
+   .topics-track {
+
+     display: flex;
+
+     animation: scroll-left 15s linear infinite;
+
+   }
+
+   .topics-track .item-box {
+   
+   display: flex;
+   
+   align-items:center;
+   
+   justify-content: center;
+   
+   text-align:center;
+
+     min-width: 100px;
+
+     margin: 0 1em;
+
+     opacity: 0.9;
+
+     transition: opacity 0.5s;
+
+   }
+
+   @keyframes scroll-left {
+
+     from { transform: translateX(0); }
+
+     to { transform: translateX(-100%); }
+
+   }
+
+   .recursos svg, .depoimento svg {
+
+     width: 40px;
+
+     height: 40px;
+
+     fill: #8000ff;
+
+     margin-bottom: 0.5em;
+
+   }
+
+   .depoimento p {
+
+     font-size: 0.9em;
+
+   }
+
+   .cronometro {
+
+     font-size: 1.5em;
+
+     margin-top: 1em;
+	 
+	 margin-bottom: 1.5em;
+
+     color: #ff0000;
+
+     font-weight: bold;
+
+   }
+
+   .falsas-solucoes svg {
+
+width: 24px;
+
+height: 24px;
+
+fill: #8000ff;
+
+margin-bottom: 0.5em;
+
+}
+
+   footer {
+
+     margin-top: 2em;
+
+     background: linear-gradient(to top, #8000ff, #222);
+
+     padding: 2em;
+
+   }
+
+   .selo {
+
+     background: #666;
+
+     display: inline-block;
+
+     border-radius: 50%;
+
+     padding: 1+em;
+
+     position: relative;
+
+   }
+
+   .selo-inner {
+
+     background: linear-gradient(to bottom, #8000ff, black);
+
+     border-radius: 50%;
+
+     padding: 1.2em;
+
+     color: #ccc;
+
+     font-size: 1.2em;
+
+     font-weight: bold;
+
+   }
+
+   .selo-text {
+
+     margin-top: 0.5em;
+
+     font-size: 0.9em;
+
+   }
+
+.item-box {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 6px;
+ text-align: left;
+}
+.item-box svg.icon-left {
+ vertical-align: middle;
+ margin-right: 4px;
+}
+
+}
+.item-content {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 10px;
+ text-align: left;
+ padding: 0.4em;
+ white-space: nowrap;
+}
+.item-content p {
+ margin: 0;
+ font-size: 0.95em;
+}
+@media (max-width: 480px) {
+
+  .topics {
+
+    height: auto;
+
+  }
+
+  .topics-track {
+
+    flex-wrap: nowrap;
+
+  }
+
+  .topics-track .item-box {
+
+    flex: 0 0 auto;
+
+    margin-right: 1em;
+
+    min-width: auto;
+
+    padding: 0.6em 0.8em;
+
+  }
+
+  .item-box svg {
+
+    width: 28px !important;
+
+    height: 28px !important;
+
+  }
+
+  .item-box span {
+
+    font-size: 0.9em;
+
+  }
+
+  .item-content {
+
+    flex-wrap: nowrap;
+
+    gap: 6px;
+
+    white-space: nowrap;
+
+  }
+
+}
+ @media (max-width: 600px) {
+ svg.icon-left {
+   width: 48px !important;
+   height: 48px !important;
+ }
+}
+    .garantia-section {
+
+      background: linear-gradient(to right, #000000, #7f00ff);
+
+      padding: 30px 20px;
+
+      border-top-left-radius: 30px;
+
+      border-top-right-radius: 30px;
+
+      position: relative;
+
+      overflow: hidden;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+    }
+
+    .garantia-bg {
+
+      position: absolute;
+
+      width: 100%;
+
+      height: 100%;
+
+      top: 0;
+
+      left: 0;
+
+      z-index: 0;
+
+    }
+
+    .garantia-bg svg {
+
+      width: 100%;
+
+      height: 100%;
+
+      display: block;
+
+    }
+
+    /* Ondas com opacidade maior para melhor visibilidade */
+
+    .garantia-bg path:nth-child(1) {
+
+      fill-opacity: 0.5 !important;
+
+    }
+
+    .garantia-bg path:nth-child(2) {
+
+      fill-opacity: 0.4 !important;
+
+    }
+
+    .garantia-bg path:nth-child(3) {
+
+      fill-opacity: 0.3 !important;
+
+    }
+
+    .garantia-content {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 20px;
+
+      max-width: 1000px;
+
+      z-index: 1;
+
+      flex-wrap: wrap;
+
+      justify-content: center;
+
+    }
+
+    .garantia-selo {
+
+      width: 120px;
+
+      height: 120px;
+
+    }
+
+    .garantia-text {
+
+      color: white;
+
+      max-width: 600px;
+
+      font-size: 16px;
+
+      text-align: center;
+
+    }
+
+    .garantia-text h4 {
+
+      margin: 0 0 10px;
+
+      font-size: 20px;
+
+    }
+
+    .garantia-text p {
+
+      margin: 0;
+
+      line-height: 1.5;
+
+    }
+	
+</style>
+</head>
+<body>
+<p style="text-transform: lowercase; color: white;">viva.de.renda</p>
+<h1 class="gradient">Viva de renda</h1>
+<p class="sub">a virada começa aqui.</p>
+<button class="btn-buy" onclick="window.location.href='https://pay.kiwify.com.br/ApArNF9'">
+ Começar agora por R$14,90
+<span class="circle-arrow">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 12L18 12" stroke="#8000ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14 6L18 12L14 18" stroke="#8000ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</span>
+</button>
+
+<div class="gray-box">
+<h2>Seja bem-vindo à <span class="gradient-text">nova realidade ...</span></h2>
+<p>Aqui você dará os primeiros passos na prática, a fazer o seu dinheiro a trabalhar para você.</p>
+</div>
+
+<h2 style="color:#bb86fc;">Você irá adquirir:</h2>
+<div class="line"></div>
+<!-- Recursos -->
+<div class="recursos">
+<div class="gray-box">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64">
+<!-- Fundo da folha -->
+<rect x="8" y="4" width="48" height="56" rx="4" ry="4" fill="#f8000ff"/>
+<!-- Canto dobrado -->
+<polygon points="56,4 44,4 56,16" fill="#d9b3ff"/>
+<!-- Cabeçalho -->
+<rect x="12" y="8" width="40" height="8" fill="#d9b3ff"/>
+<!-- Linhas horizontais da grade -->
+<line x1="12" y1="20" x2="52" y2="20" stroke="white" stroke-width="1.2"/>
+<line x1="12" y1="26" x2="52" y2="26" stroke="white" stroke-width="1.2"/>
+<line x1="12" y1="32" x2="52" y2="32" stroke="white" stroke-width="1.2"/>
+<line x1="12" y1="38" x2="52" y2="38" stroke="white" stroke-width="1.2"/>
+<line x1="12" y1="44" x2="52" y2="44" stroke="white" stroke-width="1.2"/>
+<line x1="12" y1="50" x2="52" y2="50" stroke="white" stroke-width="1.2"/>
+<!-- Linhas verticais da grade -->
+<line x1="20" y1="20" x2="20" y2="56" stroke="white" stroke-width="1.2"/>
+<line x1="28" y1="20" x2="28" y2="56" stroke="white" stroke-width="1.2"/>
+<line x1="36" y1="20" x2="36" y2="56" stroke="white" stroke-width="1.2"/>
+<line x1="44" y1="20" x2="44" y2="56" stroke="white" stroke-width="1.2"/>
+</svg>
+<h3>Planilha de Dividendo</h3>
+<p style="color:#bb86fc">Acompanhe seus dividendos de perto mês a mês e ano a ano</p>
+</div>
+<div class="gray-box">
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="24" viewBox="0 0 72 64">
+<!-- Página esquerda -->
+<path d="M8 12 C20 4, 28 4, 36 12 V52 C28 44, 20 44, 8 52 Z" fill="#f8000ff" />
+<!-- Página direita -->
+<path d="M64 12 C52 4, 44 4, 36 12 V52 C44 44, 52 44, 64 52 Z" fill="#d9b3ff" />
+<!-- Dobra central -->
+<line x1="36" y1="12" x2="36" y2="52" stroke="white" stroke-width="1.5" />
+<!-- Linhas de texto esquerda -->
+<line x1="14" y1="20" x2="32" y2="20" stroke="white" stroke-width="1"/>
+<line x1="14" y1="26" x2="32" y2="26" stroke="white" stroke-width="1"/>
+<line x1="14" y1="32" x2="32" y2="32" stroke="white" stroke-width="1"/>
+<line x1="14" y1="38" x2="32" y2="38" stroke="white" stroke-width="1"/>
+<!-- Linhas de texto direita -->
+<line x1="40" y1="20" x2="58" y2="20" stroke="#8e44ff" stroke-width="1"/>
+<line x1="40" y1="26" x2="58" y2="26" stroke="#8e44ff" stroke-width="1"/>
+<line x1="40" y1="32" x2="58" y2="32" stroke="#8e44ff" stroke-width="1"/>
+<line x1="40" y1="38" x2="58" y2="38" stroke="#8e44ff" stroke-width="1"/>
+</svg>
+<h3>Ebook</h3>
+<p style="color:#bb86fc">Aprenda passo a passo a investir na prática com segurança</p>
+</div>
+<div class="gray-box">
+<svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 64 64">
+<text x="32" y="52" text-anchor="middle" font-size="50" fill="#f8000ff" font-family="Arial" font-weight="bold">$</text>
+</svg>
+<h3>Simulador de Dividendo</h3>
+<p style="color:#bb86fc">Veja quanto pode ganhar com diferentes aportes mensais, e em diversos períodos</p>
+</div>
+</div>
+<button class="btn-buy" onclick="window.location.href='https://pay.kiwify.com.br/ApArNF9'">
+ Começar agora
+<span class="circle-arrow">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 12L18 12" stroke="#8000ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14 6L18 12L14 18" stroke="#8000ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</span>
+</button>
+<div class="line"></div>
+<h2 style="color:#bb86fc;">O que você irá aprender?</h2>
+<div class="line"></div>
+<div class="topics">
+<div class="topics-track">
+<div class="item-box">
+<div class="item-content">
+<div style="display: flex; align-items: center; gap: 8px;">
+<!-- Ícone SVG -->
+<svg width="30" height="30" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+<!-- Retângulo com cantos arredondados -->
+<rect x="12" y="12" width="40" height="32" rx="6" ry="6" fill="none" stroke="#8000ff" stroke-width="3"/>
+<!-- Furinho no canto inferior esquerdo -->
+<circle cx="14" cy="44" r="5" fill="#000" stroke="#8000ff" stroke-width="2"/>
+<!-- Cordão passando pelo furinho -->
+<path d="M14 49 C14 52, 10 56, 12 60" stroke="#8000ff" stroke-width="2" fill="none" />
+<!-- Símbolo $ centralizado -->
+<text x="32" y="38" text-anchor="middle" font-size="22" fill="#8000ff" font-family="Arial" font-weight="bold" dominant-baseline="middle">$</text>
+</svg>
+<!-- Texto -->
+<span>Como comprar ações e fundos imobiliários </span>
+</div>
+</div>
+</div>
+<div class="item-box">
+<div class="item-content">
+<div class="item-box">
+<svg class="icon-left" width="40" height="40" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<polygon points="8,24 32,12 56,24 32,36" fill="none" stroke="#8000ff" stroke-width="2" stroke-linejoin="round"/>
+<path d="M20,28 L20,38 C20,42 44,42 44,38 L44,28" fill="none" stroke="#8000ff" stroke-width="2" stroke-linecap="round"/>
+<line x1="32" y1="12" x2="32" y2="24" stroke="#8000ff" stroke-width="2"/>
+<circle cx="32" cy="24" r="1.5" fill="#8000ff"/>
+</svg>
+<span>Estudar Ações e FIIs de forma prática</span>
+</div>
+</div>
+</div>
+<div class="item-box">
+<div style="display: flex; align-items: center; justify-content: center; white-space: nowrap;">
+<svg width="28" height="28" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" style="margin-right: 8px;">
+<!-- Gráfico de barras -->
+<rect x="10" y="28" width="6" height="24" stroke="#8000ff" stroke-width="2"/>
+<rect x="22" y="20" width="6" height="32" stroke="#8000ff" stroke-width="2"/>
+<rect x="34" y="12" width="6" height="40" stroke="#8000ff" stroke-width="2"/>
+<!-- Linha com seta subindo -->
+<polyline points="10,50 22,38 34,26 48,14" fill="none" stroke="#8000ff" stroke-width="2"/>
+<polygon points="46,12 54,12 50,6" fill="#8000ff"/>
+</svg>
+<span style="font-size: 1em;">Acompanhar dividendos</span>
+</div>
+</div>
+<div class="item-box" style="display: inline-flex; align-items: center; justify-content: center; padding: 0.8em 1.2em; background-color: #1c1c1c; border-radius: 12px; margin: 0 1em; white-space: nowrap;">
+<svg width="35" height="35" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="margin-right: 6px;">
+<text x="32" y="44" text-anchor="middle" font-size="40" fill="#8000ff" font-family="Arial" font-weight="bold">$</text>
+</svg>
+<span style="font-size: 1em; line-height: 1; color: white;">Gerar renda passiva</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Depoimentos -->
+<div class="depoimento">
+<svg xmlns="http://www.w3.org/2000/svg" fill="#8000ff" width="40" height="40" viewBox="0 0 24 24">
+<path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8V22h19.2v-2.8c0-3.2-6.4-4.8-9.6-4.8z"/>
+</svg>
+<p>"Sempre tive vontade de investir, mas achava que precisava entender de economia ou ter muito dinheiro. Quando vi esse método, percebi que dá sim pra começar do zero. Tudo é explicado passo a passo, de forma simples. Hoje eu invisto com confiança.”
+– Mariana</p>
+</div>
+<div class="depoimento">
+<svg xmlns="http://www.w3.org/2000/svg" fill="#8000ff" width="40" height="40" viewBox="0 0 24 24">
+<path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8V22h19.2v-2.8c0-3.2-6.4-4.8-9.6-4.8z"/>
+</svg>
+<p>"Eu via gente falando de ações e dividendos e achava tudo muito complicado. Tinha medo de perder dinheiro por não entender nada. Aqui foi diferente: aprendi na prática, com exemplos claros. Foi como destravar um mundo novo.”
+– Eduardo</p>
+</div>
+<div class="depoimento">
+<svg xmlns="http://www.w3.org/2000/svg" fill="#8000ff" width="40" height="40" viewBox="0 0 24 24">
+<path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8V22h19.2v-2.8c0-3.2-6.4-4.8-9.6-4.8z"/>
+</svg>
+<p>"Já tinha pesquisado, assistido vídeos, mas nunca tive coragem de começar. Sempre achei que podia fazer besteira e perder tudo. Esse conteúdo me deu segurança. Hoje já recebo meus primeiros dividendos, e estou só no começo.”
+– Juliana</p>
+</div>
+
+<!-- Cronômetro -->
+<div class="cronometro" id="cronometro">Oferta acaba em: 00:00:00</div>
+<!-- Botão de compra final -->
+<button class="btn-buy" style="margin-bottom: 2em;" onclick="window.location.href='https://pay.kiwify.com.br/ApArNF9'">
+ Começar agora
+<span class="circle-arrow">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 12L18 12" stroke="#8000ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14 6L18 12L14 18" stroke="#8000ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</span>
+</button>
+<!-- RODAPÉ COM GARANTIA E ONDAS -->
+<div class="garantia-section">
+<div class="garantia-bg">
+<svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+<defs>
+<linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#000000" />
+<stop offset="100%" stop-color="#7f00ff" />
+</linearGradient>
+</defs>
+<path
+
+          fill="url(#waveGradient)"
+
+          fill-opacity="0.5"
+
+          d="M0,160 C360,320 1080,0 1440,160 L1440,320 L0,320 Z"
+
+        />
+<path
+
+          fill="url(#waveGradient)"
+
+          fill-opacity="0.4"
+
+          d="M0,240 C480,120 960,400 1440,240 L1440,320 L0,320 Z"
+
+        />
+<path
+
+          fill="url(#waveGradient)"
+
+          fill-opacity="0.3"
+
+          d="M0,280 C400,180 1040,360 1440,280 L1440,320 L0,320 Z"
+
+        />
+</svg>
+</div>
+<div class="garantia-content">
+<!-- Selo SVG -->
+<svg
+
+        class="garantia-selo"
+
+        viewBox="0 0 200 200"
+
+        xmlns="http://www.w3.org/2000/svg"
+>
+<circle
+
+          cx="100"
+
+          cy="100"
+
+          r="98"
+
+          fill="#aaa"
+
+          stroke="#fff"
+
+          stroke-width="3"
+
+        />
+<text x="30" y="60" font-size="20" fill="#fff">★</text>
+<text x="155" y="60" font-size="20" fill="#fff">★</text>
+<text x="30" y="145" font-size="20" fill="#fff">★</text>
+<text x="155" y="145" font-size="20" fill="#fff">★</text>
+<defs>
+<linearGradient id="grad7" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#000000" />
+<stop offset="100%" stop-color="#7f00ff" />
+</linearGradient>
+</defs>
+<circle cx="100" cy="100" r="60" fill="url(#grad7)" />
+<text
+
+          x="100"
+
+          y="95"
+
+          text-anchor="middle"
+
+          font-size="60"
+
+          fill="white"
+
+          font-weight="bold"
+>7</text
+>
+<text x="100" y="125" text-anchor="middle" font-size="22" fill="white">
+
+          DIAS
+</text>
+<text
+
+          x="100"
+
+          y="28"
+
+          text-anchor="middle"
+
+          font-size="14"
+
+          fill="#fff"
+>GARANTIA</text
+>
+<text
+
+          x="100"
+
+          y="180"
+
+          text-anchor="middle"
+
+          font-size="14"
+
+          fill="#fff"
+>SETE DIAS</text
+>
+</svg>
+<!-- Texto -->
+<div class="garantia-text">
+<h4 style="font-size: 24px; margin: 0; text-align: center;">
+   GARANTIA DE 7 DIAS
+</h4>
+<p style="font-size: 16px; margin-top: 10px; text-align: center;">
+ Não se preocupe, entrando hoje, você tem acesso<br />
+ ao&nbsp;conteúdo e ainda 7&nbsp;dias para tomar a sua decisão.
+</p>
+<!-- Script do cronômetro -->
+<script>
+
+   function iniciarCronometro(duracao) {
+
+     let tempo = duracao, minutos, segundos;
+
+     setInterval(() => {
+
+       minutos = parseInt(tempo / 60, 10);
+
+       segundos = parseInt(tempo % 60, 10);
+
+       minutos = minutos < 10 ? "0" + minutos : minutos;
+
+       segundos = segundos < 10 ? "0" + segundos : segundos;
+
+       document.getElementById("cronometro").textContent = "Oferta acaba em: " + minutos + ":" + segundos;
+
+       if (--tempo < 0) tempo = duracao;
+
+     }, 1000);
+
+   }
+
+   iniciarCronometro(300); // 5 minutos
+</script>
+</body>
+</html>
+ 
